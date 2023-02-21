@@ -1,18 +1,9 @@
-## Getting Started
+## 스프링 부트 실전 활용 마스터
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
 
-## Folder Structure
+### 1장 : 리액티브 프로그래밍이란? 
 
-The workspace contains two folders by default, where:
+boot + webflux 로 구현한 간단한 이커머스 프로젝트 : reactive-spring-boot
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
-
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+1장 정리 : 
+ https://iris-allspice-3bc.notion.site/1-15a86190291947278855f7d2a3fbe8d7
