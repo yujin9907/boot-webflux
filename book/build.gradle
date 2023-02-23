@@ -25,6 +25,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
+	implementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
+	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb-reactive'
 }
 
 tasks.named('test') {
