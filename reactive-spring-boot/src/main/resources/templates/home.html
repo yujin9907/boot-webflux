@@ -14,12 +14,14 @@
     <h3>템플릿 타임리프 에 대한 설명</h3>
     <p>타임리프는 DOM 기반 파서를 내장하고 있음. 단순히 img, hr을 사용할 때도 태그 닫아라</p>
 
-    <h1>Inventory Management</h1>
+    <h2>Inventory Management</h2>
     <table>
         <thead>
-            <tr>ID</tr>
-            <tr>Name</tr>
-            <tr>Price</tr>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+            </tr>
         </thead>
         <tbody>
             <tr th:each="item : ${items}">
@@ -27,15 +29,36 @@
                 <td th:text="${item.name}"></td>
                 <td th:text="${item.price}"></td>
                 <td>
-                    <form method="post" th:action="@{'/add/'+${item.id}}">
-                        <input type="submit" value="Add to cart" />
+                    <form method="post" th:action="@{'/add/' + ${item.id}}">
+                        <input type="submit" value="Add to Cart" />
                     </form>
                 </td>
                 <td>
-                    <form method="delete" th:ection="@{'/delete/'+${item.id}}">
-                        <input type="submit" value="delete" />
+                    <form th:method="delete" th:action="@{'/delete/' + ${item.id}}">
+                        <input type="submit" value="Delete" />
                     </form>
                 </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- end::1[] -->
+
+    <!-- tag::2[] -->
+    <h2>My Cart</h2>
+    <p th:text="${cart.id}"></p>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="cartItem : ${cart.cartItems}">
+                <td th:text="${cartItem.item.id}"></td>
+                <td th:text="${cartItem.item.name}"></td>
+                <td th:text="${cartItem.quantity}"></td>
             </tr>
         </tbody>
     </table>

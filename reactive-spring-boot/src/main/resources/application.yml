@@ -3,14 +3,21 @@ spring:
     hiddenmethod:
       filter:
         enable: true
-  mongodb:
-    embedded:
-      version: 4.0.21
-#   data:
-#     mongodb:
-#       host: 127.0.0.1
-#       port: 27017
+  # mongodb:
+  #   embedded:
+  #     version: 3.4.5 # 4.0.21
+  output:
+    ansi:
+      enabled: ALWAYS
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: test
 
+mongodb:
+  test:
+    connectionString: mongodb://localhost:27017/test
 # # mongodb
 # mongodb:
 #   test:
