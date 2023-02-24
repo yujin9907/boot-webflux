@@ -18,8 +18,4 @@ spring:
 mongodb:
   test:
     connectionString: mongodb://localhost:27017/test
-# # mongodb
-# mongodb:
-#   test:
-#     connectionString: mongodb://localhost:27017/test
 

@@ -1,5 +1,6 @@
 package co.book.reactivespringboot.entity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -15,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Document(collection = "cart")
 public class Cart {
     private @Id String id;
-    private List<CartItem> cartItems;
+    private List<CartItem> cartItems = new ArrayList<>();
 
     public Cart(String id) {
         this.id = id;

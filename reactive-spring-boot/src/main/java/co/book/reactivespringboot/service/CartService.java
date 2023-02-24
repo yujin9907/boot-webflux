@@ -36,7 +36,7 @@ public class CartService {
                                         return cart;
                                     });
                         }))
-                .flatMap(cart -> this.cartRepository.save(cart));
+                .flatMap(this.cartRepository::save);
     }
 
 }

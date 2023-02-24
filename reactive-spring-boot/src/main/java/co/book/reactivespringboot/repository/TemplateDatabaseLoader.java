@@ -21,8 +21,6 @@ public class TemplateDatabaseLoader {
     @Autowired
     private ItemRepository itemRepository;
 
-    // 무슨 지랄을 해도 저장이 안 된다
-
     @Bean
     CommandLineRunner initialize(ReactiveMongoOperations mongo) {
         return args -> {
