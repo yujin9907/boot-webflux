@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 
 import co.book.reactivespringboot.entity.Cart;
 import co.book.reactivespringboot.entity.CartItem;
-import co.book.reactivespringboot.entity.Item;
 import co.book.reactivespringboot.repository.CartRepository;
 import co.book.reactivespringboot.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
