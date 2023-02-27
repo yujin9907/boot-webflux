@@ -1,5 +1,10 @@
 package co.book.reactivespringboot.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.print.attribute.HashAttributeSet;
+
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.ExampleMatcher.StringMatcher;
@@ -8,11 +13,13 @@ import org.springframework.data.mongodb.core.ReactiveFluentMongoOperations;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
+import co.book.reactivespringboot.entity.Cart;
 import co.book.reactivespringboot.entity.Item;
 import co.book.reactivespringboot.repository.CartRepository;
 import co.book.reactivespringboot.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
 @Service
@@ -35,6 +42,14 @@ public class InventoryService {
         Example<Item> pro = Example.of(item, matcher);
 
         return itemRepository.findAll(pro);
+    }
+
+    public Flux<Item> getInventory() {
+        return itemRepository.findAll();
+    }
+
+    public Mono<Cart> getCart(String cartId) {
+        return cartRepository.findById(cartId);
     }
 
     // 평문형 연산 쿼리:
