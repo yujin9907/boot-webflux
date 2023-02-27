@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import co.book.reactivespringboot.entity.Item;
+import co.book.reactivespringboot.repository.CartRepository;
 import co.book.reactivespringboot.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Flux;
@@ -18,7 +19,8 @@ import reactor.core.publisher.Flux;
 public class InventoryService {
 
     private final ItemRepository itemRepository;
-    private final ReactiveFluentMongoOperations fluentMongoOperations;
+    private final CartRepository cartRepository;
+    // private final ReactiveFluentMongoOperations fluentMongoOperations;
 
     // example 쿼리 : name과 discription 검색
     public Flux<Item> searchByExample(String name, String description, boolean isUsed) {

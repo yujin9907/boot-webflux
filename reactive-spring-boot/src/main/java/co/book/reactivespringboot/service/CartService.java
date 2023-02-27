@@ -33,6 +33,7 @@ public class CartService {
                             return this.itemRepository.findById(id)
                                     .map(item -> new CartItem(item))
                                     .map(cartItem -> {
+                                        cartItem.setQuantity(1);
                                         cart.getCartItems().add(cartItem);
                                         return cart;
                                     });

@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.core.ReactiveMongoOperations;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.thymeleaf.TemplateEngine;
 
 import co.book.reactivespringboot.entity.Item;
 import reactor.blockhound.BlockHound;
@@ -19,7 +20,10 @@ import reactor.blockhound.BlockHound;
 public class ReactiveSpringBootApplication {
 
 	public static void main(String[] args) {
-		BlockHound.install();
+		// BlockHound.install(); 블록하운드 기본 설정
+		// BlockHound.builder()
+		// .allowBlockingCallsInside(TemplateEngine.class.getCanonicalName(),
+		// "process").install();
 
 		SpringApplication.run(ReactiveSpringBootApplication.class, args);
 	}
