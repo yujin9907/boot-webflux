@@ -1,4 +1,4 @@
-package co.book.reactivespringboot;
+package co.book.reactivespringboot.web;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
