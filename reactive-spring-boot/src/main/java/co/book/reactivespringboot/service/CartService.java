@@ -18,7 +18,9 @@ public class CartService {
 
     public Mono<Cart> addToCart(String cartId, String id) {
         return this.cartRepository.findById(cartId)
+                .log("found cart")
                 .defaultIfEmpty(new Cart(cartId))
+                .log("is empty")
                 .flatMap(cart -> cart.getCartItems().stream()
                         .filter(cartItem -> cartItem.getItem()
                                 .getId().equals(id))

@@ -17,6 +17,12 @@
 		<java.version>11</java.version>
 	</properties>
 	<dependencies>
+		<!-- blockhound -->
+	    <dependency>
+            <groupId>io.projectreactor.tools</groupId>
+            <artifactId>blockhound</artifactId>
+            <version>1.0.3.RELEASE</version>
+        </dependency>
 	    <!-- tag::devtools[] -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
