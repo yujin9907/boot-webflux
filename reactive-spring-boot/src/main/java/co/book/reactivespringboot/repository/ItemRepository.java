@@ -19,7 +19,9 @@ public interface ItemRepository extends ReactiveCrudRepository<Item, String>, Re
     Flux<Item> FindItemsForCustmoer(String name, int age);
 
     // 네이밍 규칙 3 한계 : name 과 description 검색
-    Flux<Item> findByNameContainingOrDescriptionContainingAllIgrnoreCase(String name, String description);
+    // Flux<Item> findByNameContainingOrDescriptionContainingAllIgrnoreCase(String
+    // name, String description);
+    // 심지어 오타인듯 오류남
 
     // example 쿼리 : itemRepository 상속, InventoryService 구현
 

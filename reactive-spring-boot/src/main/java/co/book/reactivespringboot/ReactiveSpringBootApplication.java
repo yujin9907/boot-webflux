@@ -1,15 +1,10 @@
 package co.book.reactivespringboot;
 
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
-import org.springframework.context.annotation.Bean;
-import org.springframework.data.mongodb.core.ReactiveMongoOperations;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
+import org.thymeleaf.TemplateEngine;
 
-import co.book.reactivespringboot.entity.Item;
+import reactor.blockhound.BlockHound;
 
 @SpringBootApplication
 // @EnableAutoConfiguration(exclude = { MongoAutoConfiguration.class })
@@ -18,6 +13,14 @@ import co.book.reactivespringboot.entity.Item;
 public class ReactiveSpringBootApplication {
 
 	public static void main(String[] args) {
+		// BlockHound.install(); 블록하운드 기본 설정
+		// 블록하운드 탬플릿 허용
+
+		BlockHound.builder()
+				.allowBlockingCallsInside(TemplateEngine.class.getCanonicalName(),
+						"process")
+				.install();
+
 		SpringApplication.run(ReactiveSpringBootApplication.class, args);
 	}
 

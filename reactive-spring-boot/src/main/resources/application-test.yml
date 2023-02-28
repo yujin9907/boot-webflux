@@ -1,0 +1,12 @@
+spring:
+  webflux:
+    hiddenmethod:
+      filter:
+        enable: true
+  mongodb:
+    embedded:
+      version: 4.0.21
+  output:
+    ansi:
+      enabled: ALWAYS
+

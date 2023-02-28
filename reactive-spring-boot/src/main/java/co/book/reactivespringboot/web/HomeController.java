@@ -24,13 +24,11 @@ public class HomeController {
 
     private final CartService cartService;
     private final InventoryService inventoryService;
-    private final ItemRepository itemRepository;
-    private final CartRepository cartRepository;
 
     @ResponseBody
     @PostMapping("/test")
     public Mono<Item> saveDummy(@RequestBody Item dto) { // {"title":"제목3","content":"내용3"}
-        Mono<Item> boardEntity = itemRepository.save(dto);
+        Mono<Item> boardEntity = inventoryService.saveItem(dto);
 
         return boardEntity;
     }
@@ -38,12 +36,10 @@ public class HomeController {
     @GetMapping
     public Mono<Rendering> home() {
 
-        itemRepository.save(new Item("pen", 0.75));
-
         return Mono.just(Rendering.view("home.html")
-                .modelAttribute("items", this.itemRepository.findAll())
-                .modelAttribute("cart", this.cartRepository.findById("My cart")
-                        .defaultIfEmpty(new Cart("My Cart")))
+                .modelAttribute("items", inventoryService.getInventory())
+                .modelAttribute("cart", inventoryService.getCart("My cart")
+                        .defaultIfEmpty(new Cart("My cart")))
                 .build());
     }
 
@@ -60,7 +56,7 @@ public class HomeController {
             @RequestParam boolean isUsed) {
         return Mono.just(Rendering.view("home.html")
                 .modelAttribute("items", inventoryService.searchByExample(name, description, isUsed))
-                .modelAttribute("cart", cartRepository.findById("My cart"))
+                .modelAttribute("cart", inventoryService.getCart("My cart"))
                 .build());
 
     }
