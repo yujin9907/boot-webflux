@@ -2,6 +2,9 @@ package co.book.reactivespringboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.thymeleaf.TemplateEngine;
+
+import reactor.blockhound.BlockHound;
 
 @SpringBootApplication
 // @EnableAutoConfiguration(exclude = { MongoAutoConfiguration.class })
@@ -12,10 +15,11 @@ public class ReactiveSpringBootApplication {
 	public static void main(String[] args) {
 		// BlockHound.install(); 블록하운드 기본 설정
 		// 블록하운드 탬플릿 허용
-		// BlockHound.builder()
-		// .allowBlockingCallsInside(TemplateEngine.class.getCanonicalName(),
-		// "process")
-		// .install();
+
+		BlockHound.builder()
+				.allowBlockingCallsInside(TemplateEngine.class.getCanonicalName(),
+						"process")
+				.install();
 
 		SpringApplication.run(ReactiveSpringBootApplication.class, args);
 	}

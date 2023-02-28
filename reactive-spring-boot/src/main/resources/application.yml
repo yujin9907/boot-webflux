@@ -3,9 +3,9 @@ spring:
     hiddenmethod:
       filter:
         enable: true
-  # mongodb:
-  #   embedded:
-  #     version: 3.4.5 # 4.0.21
+  mongodb:
+    embedded:
+      version: 3.4.5 # 4.0.21
   output:
     ansi:
       enabled: ALWAYS

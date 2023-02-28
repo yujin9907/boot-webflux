@@ -12,6 +12,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import co.book.reactivespringboot.entity.Cart;
@@ -22,6 +23,7 @@ import co.book.reactivespringboot.repository.ItemRepository;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
+@ActiveProfiles("test")
 @ExtendWith(SpringExtension.class)
 public class CartServiceTest {
 

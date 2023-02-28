@@ -8,15 +8,20 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import co.book.reactivespringboot.entity.Cart;
 import co.book.reactivespringboot.entity.Item;
+import co.book.reactivespringboot.repository.CartRepository;
+import co.book.reactivespringboot.repository.ItemRepository;
+import co.book.reactivespringboot.service.CartService;
 import co.book.reactivespringboot.service.InventoryService;
 import co.book.reactivespringboot.web.HomeController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+@ActiveProfiles("test")
 @WebFluxTest(HomeController.class) // homecontroller에 국한된 스프링 웹플럭스 슬라이스 테스트
 public class HomeWebTest {
 
@@ -24,6 +29,12 @@ public class HomeWebTest {
     private WebTestClient webTestClient; // 이새끼 필요해서 생성자 주입(슬라이스 테스트의 일부)
     @MockBean
     InventoryService inventoryService;
+    @MockBean
+    CartService cartService;
+    @MockBean
+    ItemRepository itemRepository;
+    @MockBean
+    CartRepository cartRepository;
 
     @Test
     public void homePage() {

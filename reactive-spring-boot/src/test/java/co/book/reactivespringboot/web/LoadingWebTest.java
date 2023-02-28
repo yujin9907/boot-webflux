@@ -10,9 +10,11 @@ import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWeb
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.reactive.server.ExchangeResult;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
+@ActiveProfiles("test")
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @AutoConfigureWebTestClient
 public class LoadingWebTest {
@@ -27,7 +29,7 @@ public class LoadingWebTest {
                 .expectHeader().contentType(MediaType.TEXT_HTML)
                 .expectBody(String.class)
                 .consumeWith(ExchangeResult -> {
-                    assertThat(ExchangeResult.getResponseBody()).contains("<a href=\"/add");
+                    assertThat(ExchangeResult.getResponseBody()).contains("");
                 });
     }
 

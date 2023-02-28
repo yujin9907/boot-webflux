@@ -1,16 +1,8 @@
 package co.book.reactivespringboot.service;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.print.attribute.HashAttributeSet;
-
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.ExampleMatcher.StringMatcher;
-import org.springframework.data.mongodb.core.FluentMongoOperations;
-import org.springframework.data.mongodb.core.ReactiveFluentMongoOperations;
-import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
 
 import co.book.reactivespringboot.entity.Cart;
@@ -50,6 +42,10 @@ public class InventoryService {
 
     public Mono<Cart> getCart(String cartId) {
         return cartRepository.findById(cartId);
+    }
+
+    public Mono<Item> saveItem(Item item) {
+        return itemRepository.save(item);
     }
 
     // 평문형 연산 쿼리:
