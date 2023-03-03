@@ -40,6 +40,10 @@ public class InventoryService {
         return itemRepository.findAll();
     }
 
+    public Mono<Item> getIdInventory(String id) {
+        return itemRepository.findById(id);
+    }
+
     public Mono<Cart> getCart(String cartId) {
         return cartRepository.findById(cartId);
     }
@@ -57,4 +61,5 @@ public class InventoryService {
     // .matching(query(where("test").is(name).and("test2").is(description)))
     // .all();
     // }
+
 }
