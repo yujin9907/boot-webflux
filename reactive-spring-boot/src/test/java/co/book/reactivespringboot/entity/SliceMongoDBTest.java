@@ -19,7 +19,7 @@ public class SliceMongoDBTest {
     ItemRepository itemRepository;
 
     @Test
-    public void 아이템저장테스트() {
+    public void itemSaveTest() {
         Item item = Item.builder().name("name").description("description").price(19.00).build();
 
         itemRepository.save(item)

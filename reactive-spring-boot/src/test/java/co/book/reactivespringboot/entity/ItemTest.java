@@ -8,7 +8,7 @@ import org.springframework.test.context.ActiveProfiles;
 @ActiveProfiles("test")
 public class ItemTest {
     @Test
-    public void 아이템테스트() {
+    public void itemEntityTest() {
         Item sample = Item.builder()
                 .id("testId")
                 .name("test")

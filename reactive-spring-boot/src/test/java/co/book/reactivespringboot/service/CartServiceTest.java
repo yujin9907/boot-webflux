@@ -58,7 +58,7 @@ public class CartServiceTest {
         }
 
         @Test
-        public void 빈카트에아이템추가테스트() {
+        public void AddItemToEmptyCart() {
                 cartService.addToCart("My cart", "iteml")
                                 .as(StepVerifier::create)
                                 .expectNextMatches(cart -> {

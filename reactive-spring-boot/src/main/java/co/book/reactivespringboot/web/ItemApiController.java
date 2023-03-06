@@ -38,11 +38,11 @@ public class ItemApiController {
         return inventoryService.getIdInventory(id);
     }
 
-    @PostMapping(value = "/items")
+    @PostMapping(value = "/item")
     public Mono<ResponseEntity<?>> addNewItem(@RequestBody Mono<Item> item) {
         return item.flatMap(i -> inventoryService.saveItem(i)) // flatmap : mono를 mono로 반환
                 .map(savedItem -> ResponseEntity
-                        .created(URI.create("/items/" + savedItem.getId()))
+                        .created(URI.create("/item/" + savedItem.getId()))
                         .body(savedItem));
     }
 
