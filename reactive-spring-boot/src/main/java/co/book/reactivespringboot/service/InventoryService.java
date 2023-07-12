@@ -6,6 +6,7 @@ import org.springframework.data.domain.ExampleMatcher.StringMatcher;
 import org.springframework.stereotype.Service;
 
 import co.book.reactivespringboot.entity.Cart;
+import co.book.reactivespringboot.entity.Cart;
 import co.book.reactivespringboot.entity.Item;
 import co.book.reactivespringboot.repository.CartRepository;
 import co.book.reactivespringboot.repository.ItemRepository;
@@ -18,6 +19,8 @@ import reactor.core.publisher.Mono;
 public class InventoryService {
 
     private final ItemRepository itemRepository;
+    private final CartRepository cartRepository;
+    // private final ReactiveFluentMongoOperations fluentMongoOperations;
     private final CartRepository cartRepository;
     // private final ReactiveFluentMongoOperations fluentMongoOperations;
 
